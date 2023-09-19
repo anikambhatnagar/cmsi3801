@@ -36,7 +36,12 @@ function checkMaxOneOdd(countMap) {
 function buildCharFrequencyTable(phrase) {
     var map = new Map();
     //for each char in string
-    for (c in phrase){
+    phrase.toLowerCase()
+    for (c in phrase) {
+        //remove spaces
+        if (c == " ") {
+            phrase = phrase.replace(c, "")
+        }
         //check if c already in map
         //if yes, increment, if no, set to initial value
         if (map.get(phrase[c]) >= 0) {
@@ -50,7 +55,10 @@ function buildCharFrequencyTable(phrase) {
 }
 
 console.log(permPalindrome("tacocat"));
+console.log(permPalindrome("tacoCat"));
+console.log(permPalindrome("tac ocat"));
 console.log(permPalindrome("hello"));
+console.log(permPalindrome("1tacocat1"));
 
 
 //2.6 Linked List palindrome
